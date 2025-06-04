@@ -31,11 +31,17 @@ def main_menu():
         elif wybor == "6":
             student.dodaj_studenta()
         elif wybor == "7":
-            wypozyczenia.wypozycz_ksiazke()
+            try:
+                student_id = int(input("Podaj ID studenta: "))
+                ksiazka_id = int(input("Podaj ID książki: "))
+                wypozyczenia.wypozycz_ksiazke(student.studenci, biblioteka.ksiazki, student_id, ksiazka_id)
+            except ValueError:
+                print("Nieprawidłowe dane wejściowe. Podaj liczby całkowite.")
         elif wybor == "8":
-            wypozyczenia.zwroc_ksiazke()
+            # analogicznie, jeśli masz funkcję zwrotu, też z argumentami
+            pass
         elif wybor == "9":
-            wypozyczenia.raport_przypomnien()
+            wypozyczenia.raport_przypomnien(student.studenci)
         elif wybor == "0":
             print("Do widzenia!")
             break
