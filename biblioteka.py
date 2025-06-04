@@ -1,4 +1,4 @@
-siazki = [
+ksiazki = [
     {"id": 1, "tytul": "Lalka", "autor": "Bolesław Prus", "rok": 1890, "strony": 700, "ilosc": 3},
     {"id": 2, "tytul": "Pan Tadeusz", "autor": "Adam Mickiewicz", "rok": 1834, "strony": 340, "ilosc": 2},
     {"id": 3, "tytul": "Zbrodnia i kara", "autor": "Fiodor Dostojewski", "rok": 1866, "strony": 500, "ilosc": 4},
