@@ -28,6 +28,26 @@ def wypozycz_ksiazke(studenci, ksiazki, student_id, ksiazka_id):
     })
     print(f"Wypożyczono książkę '{ksiazka['tytul']}' studentowi {student['imie']} {student['nazwisko']}")
 
+def zwroc_ksiazke(studenci, ksiazki, student_id, ksiazka_id):
+    student = next((s for s in studenci if s['id'] == student_id), None)
+    ksiazka = next((k for k in ksiazki if k['id'] == ksiazka_id), None)
+
+    if student is None:
+        print("Nie znaleziono studenta.")
+        return
+    if ksiazka is None:
+        print("Nie znaleziono książki.")
+        return
+
+    wypozyczona = next((w for w in student['wypozyczone'] if w['id'] == ksiazka_id), None)
+    if wypozyczona is None:
+        print("Ten student nie wypożyczył tej książki.")
+        return
+
+    student['wypozyczone'].remove(wypozyczona)
+    ksiazka['ilosc'] += 1
+    print(f"Zwrócono książkę '{ksiazka['tytul']}' od studenta {student['imie']} {student['nazwisko']}")
+
 
 
 def raport_przypomnien(studenci, dni=14):
