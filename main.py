@@ -38,8 +38,13 @@ def main_menu():
             except ValueError:
                 print("Nieprawidłowe dane wejściowe. Podaj liczby całkowite.")
         elif wybor == "8":
-            # analogicznie, jeśli masz funkcję zwrotu, też z argumentami
-            pass
+            try:
+                student_id = int(input("Podaj ID studenta: "))
+                ksiazka_id = int(input("Podaj ID książki do zwrotu: "))
+                wypozyczenia.zwroc_ksiazke(student.studenci, biblioteka.ksiazki, student_id, ksiazka_id)
+            except ValueError:
+                print("Nieprawidłowe dane wejściowe. Podaj liczby całkowite.")
+
         elif wybor == "9":
             wypozyczenia.raport_przypomnien(student.studenci)
         elif wybor == "0":
